@@ -2,6 +2,9 @@ import React from 'react'
 import ItemCount from './ItemCount'
 
 export default function ItemListContainer({ greeting }) {
+  const onAdd = (cantidad) => {
+    alert(`El usuario agrego: ${cantidad}`)
+  }
   return (
     <>
       <div
@@ -15,7 +18,7 @@ export default function ItemListContainer({ greeting }) {
       >
         {greeting}
       </div>
-      <ItemCount />
+      <ItemCount stock={10} initial={1} onAdd={onAdd} />
     </>
   )
 }
