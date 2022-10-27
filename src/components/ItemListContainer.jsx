@@ -1,5 +1,7 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+
+import ItemList from './ItemList'
+// import ItemCount from './ItemCount'
 
 export default function ItemListContainer({ greeting }) {
   const onAdd = (cantidad) => {
@@ -7,7 +9,7 @@ export default function ItemListContainer({ greeting }) {
   }
   return (
     <>
-      <div
+      {/* <div
         style={{
           backgroundColor: 'Brown',
           color: 'yellow',
@@ -18,7 +20,8 @@ export default function ItemListContainer({ greeting }) {
       >
         {greeting}
       </div>
-      <ItemCount stock={10} initial={1} onAdd={onAdd} />
+      <ItemCount stock={10} initial={1} onAdd={onAdd} /> */}
+      <ItemList />
     </>
   )
 }
