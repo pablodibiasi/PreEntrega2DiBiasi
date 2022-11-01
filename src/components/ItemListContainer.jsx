@@ -3,10 +3,11 @@ import React from 'react'
 import ItemList from './ItemList'
 // import ItemCount from './ItemCount'
 
-export default function ItemListContainer({ greeting }) {
-  const onAdd = (cantidad) => {
-    alert(`El usuario agrego: ${cantidad}`)
-  }
+export default function ItemListContainer({}) {
+  // const onAdd = (cantidad) => {
+  //   alert(`El usuario agrego: ${cantidad}`)
+  // }
+
   return (
     <>
       {/* <div

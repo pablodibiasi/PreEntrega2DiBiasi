@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import logo from '../imagenes/logoelemento.jpg'
-import CartWidjet from './CartWidjet'
+import CartWidget from './CartWidget'
 function ColorSchemesExample() {
   return (
     <>
@@ -21,7 +21,7 @@ function ColorSchemesExample() {
             <Nav.Link href="#features">productos</Nav.Link>
             <Nav.Link href="#pricing">contacto</Nav.Link>
           </Nav>
-          <CartWidjet />
+          <CartWidget />
         </Container>
       </Navbar>
     </>
