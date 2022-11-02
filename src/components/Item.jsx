@@ -1,8 +1,12 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
+
 import Card from 'react-bootstrap/Card'
+import ItemCount from './ItemCount'
 
 export default function item({ id, title, description, price, pictureUrl }) {
+  const onAdd = (cantidad) => {
+    alert(`El usuario agrego: ${cantidad}`)
+  }
   return (
     <div>
       <Card style={{ width: '18rem', borderColor: 'brown', borderWidth: 3 }}>
@@ -14,7 +18,7 @@ export default function item({ id, title, description, price, pictureUrl }) {
             <p> precio:{price}</p>
             <p>id:{id}</p>
           </Card.Text>
-          <Button variant="primary">Agregar al carrito</Button>
+          <ItemCount stock={10} initial={1} onAdd={onAdd} />
         </Card.Body>
       </Card>
     </div>

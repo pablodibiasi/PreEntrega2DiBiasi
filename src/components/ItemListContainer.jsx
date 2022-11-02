@@ -1,28 +1,23 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { getProducts } from '../data/productos'
 import ItemList from './ItemList'
-// import ItemCount from './ItemCount'
 
 export default function ItemListContainer({}) {
-  // const onAdd = (cantidad) => {
-  //   alert(`El usuario agrego: ${cantidad}`)
-  // }
+  const [Catalogo, setCatalogo] = useState([])
+  useEffect(() => {
+    const obtengoProductos = new Promise((resolve, reject) => {
+      resolve(getProducts())
+    })
+    obtengoProductos
+      .then((res) => {
+        setCatalogo(res)
+      })
 
+      .catch((err) => console.log(err))
+  }, [])
   return (
     <>
-      {/* <div
-        style={{
-          backgroundColor: 'Brown',
-          color: 'yellow',
-          textAlign: 'center',
-          height: 250,
-          fontSize: 50,
-        }}
-      >
-        {greeting}
-      </div>
-      <ItemCount stock={10} initial={1} onAdd={onAdd} /> */}
-      <ItemList />
+      <ItemList Catalogo={Catalogo} />
     </>
   )
 }

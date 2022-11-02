@@ -7,7 +7,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
 
   return (
     <div>
-      <ButtonGroup size="lg" className="mb-2">
+      <ButtonGroup size="sm" className="mb-2">
         <Button
           onClick={() => {
             contador < stock ? setContador(contador + 1) : setContador(stock)
