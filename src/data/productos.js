@@ -89,3 +89,11 @@ export const getProducts = () => {
     }, 2000)
   })
 }
+
+export const getItem = () => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res(productos.filter((producto) => producto.id == 1))
+    }, 2000)
+  })
+}

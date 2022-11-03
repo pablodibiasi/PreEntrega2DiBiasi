@@ -1,21 +1,22 @@
 import React from 'react'
+import { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import ItemCount from './ItemCount'
 
-export default function item({ id, title, description, price, pictureUrl }) {
+export default function ItemDetail({ item }) {
   const onAdd = (cantidad) => {
     alert(`El usuario agrego: ${cantidad}`)
   }
   return (
     <div>
       <Card style={{ width: '18rem', borderColor: 'brown', borderWidth: 3 }}>
-        <Card.Img variant="top" src={pictureUrl} />
+        <Card.Img variant="top" src={item.pictureUrl} />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
+          <Card.Title>{item.title}</Card.Title>
           <Card.Text>
-            <p>descripcion:{description}</p>
-            <p> precio:{price}</p>
-            <p>id:{id}</p>
+            <p>descripcion:{item.description}</p>
+            <p> precio:{item.price}</p>
+            <p>id:{item.id}</p>
           </Card.Text>
           <ItemCount stock={10} initial={1} onAdd={onAdd} />
         </Card.Body>
