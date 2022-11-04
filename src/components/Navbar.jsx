@@ -5,6 +5,7 @@ import logo from '../imagenes/logoelemento.jpg'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button'
 function ColorSchemesExample() {
   return (
     <>
@@ -18,37 +19,36 @@ function ColorSchemesExample() {
             </Link>{' '}
           </Navbar.Brand>
           <Nav className="me-auto">
-            <ul>
-              <li>
-                <Link to={'/'}>Inicio</Link>
-              </li>
-              <li>
-                <Link to={'/Contacto'}>contacto</Link>
-              </li>
-              <li>
-                {' '}
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    categorias
-                  </Dropdown.Toggle>
+            <Button variant="light">
+              {' '}
+              <Link to={'/'}>Inicio</Link>{' '}
+            </Button>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item>
-                      <Link to={'/categoria/living'}>living</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                      <Link to={'/categoria/dormitorio'}>dormitorio</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                      <Link to={'/categoria/cocina'}>cocina</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                      <Link to={'/categoria/oficina'}>oficina</Link>
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </li>
-            </ul>
+            <Button variant="light">
+              {' '}
+              <Link to={'/Contacto'}>contacto</Link>{' '}
+            </Button>
+
+            <Dropdown>
+              <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                categorias
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Link to={'/categoria/living'}>living</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to={'/categoria/dormitorio'}>dormitorio</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to={'/categoria/cocina'}>cocina</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to={'/categoria/oficina'}>oficina</Link>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
           <CartWidget />
         </Container>

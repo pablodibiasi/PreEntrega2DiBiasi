@@ -2,6 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
+
 export default function item({
   id,
   title,
@@ -14,22 +15,21 @@ export default function item({
     alert(`El usuario agrego: ${cantidad}`)
   }
   return (
-    <div>
+    <>
       <Card style={{ width: '18rem', borderColor: 'brown', borderWidth: 3 }}>
         <Card.Img variant="top" src={pictureUrl} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
-            {/* <p>descripcion: {description}</p> */}
             <p> precio: {price}</p>
-            {/* <p>id: {id}</p> */}
+
             <p>Muebles de {categoria}</p>
           </Card.Text>
-          <Button variant="light">
+          <Button variant="outline-primary">
             <Link to={'/item/' + id}>Ir a detalles del producto</Link>
           </Button>
         </Card.Body>
       </Card>
-    </div>
+    </>
   )
 }

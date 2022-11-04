@@ -13,7 +13,7 @@ export const productos = [
   {
     id: 1,
     title: 'cajonera',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 7000,
     pictureUrl: cajonera,
     categoria: 'dormitorio',
@@ -21,7 +21,7 @@ export const productos = [
   {
     id: 2,
     title: 'mesa 2',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesa2,
     categoria: 'living',
@@ -29,7 +29,7 @@ export const productos = [
   {
     id: 3,
     title: 'mesa 3',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesa3,
     categoria: 'living',
@@ -37,7 +37,7 @@ export const productos = [
   {
     id: 4,
     title: 'mesa 4',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesa4,
     categoria: 'living',
@@ -45,7 +45,7 @@ export const productos = [
   {
     id: 5,
     title: 'mesa 5',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesa5,
     categoria: 'oficina',
@@ -53,7 +53,7 @@ export const productos = [
   {
     id: 6,
     title: 'mesa Luz',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesaluz,
     categoria: 'dormitorio',
@@ -61,7 +61,7 @@ export const productos = [
   {
     id: 7,
     title: 'mesa movil',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesamovil,
     categoria: 'living',
@@ -69,7 +69,7 @@ export const productos = [
   {
     id: 8,
     title: 'mesa plegable',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesaplegable,
     categoria: 'living',
@@ -77,7 +77,7 @@ export const productos = [
   {
     id: 9,
     title: 'mesa Ratona',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: mesaRatona,
     categoria: 'living',
@@ -85,7 +85,7 @@ export const productos = [
   {
     id: 10,
     title: 'vinoteca',
-    description: '',
+    description: 'mueble de madera a medida',
     price: 10000,
     pictureUrl: vinoteca,
     categoria: 'cocina',

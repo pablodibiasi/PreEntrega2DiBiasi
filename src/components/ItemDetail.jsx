@@ -14,7 +14,7 @@ export default function ItemDetail({ item }) {
         <Card.Body>
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>
-            <p>descripcion:{item.description}</p>
+            <p>{item.description}</p>
             <p> precio:{item.price}</p>
             <p>Id de producto:{item.id}</p>
             <p>Muebles de {item.categoria}</p>
