@@ -16,7 +16,8 @@ export default function ItemDetail({ item }) {
           <Card.Text>
             <p>descripcion:{item.description}</p>
             <p> precio:{item.price}</p>
-            <p>id:{item.id}</p>
+            <p>Id de producto:{item.id}</p>
+            <p>Muebles de {item.categoria}</p>
           </Card.Text>
           <ItemCount stock={10} initial={1} onAdd={onAdd} />
         </Card.Body>

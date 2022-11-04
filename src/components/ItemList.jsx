@@ -11,6 +11,7 @@ export default function ItemList({ Catalogo }) {
           description={items.description}
           price={items.price}
           pictureUrl={items.pictureUrl}
+          categoria={items.categoria}
         />
       </div>
     )

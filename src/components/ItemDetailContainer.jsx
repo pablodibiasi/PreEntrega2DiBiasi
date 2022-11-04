@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { getItem } from '../data/productos'
+import { useParams } from 'react-router-dom'
+import { getProduct } from '../data/productos'
+import item from './Item'
 import ItemDetail from './ItemDetail'
 
-export default function ItemDetailContainer({}) {
+export default function ItemDetailContainer() {
+  const { iditem } = useParams()
   const [prodDetalle, setProdDetalle] = useState([])
+
   useEffect(() => {
-    const obtengoProductDet = new Promise((resolve, reject) => {
-      resolve(getItem())
+    const obtengoProductDet = new Promise((res, rej) => {
+      res(getProduct())
     })
     obtengoProductDet
       .then((res) => {
-        console.log(res)
-        setProdDetalle(res)
+        setProdDetalle(res.find((item) => item.id == iditem))
       })
 
       .catch((err) => console.log(err))
-  }, [])
-
-  return prodDetalle.map((item) => {
-    return (
-      <div className="Cards" key={item.id}>
-        <ItemDetail item={item} />
-      </div>
-    )
-  })
+  }, [iditem])
+  console.log(prodDetalle)
+  return (
+    <div className="Cards" key={prodDetalle.id}>
+      <ItemDetail item={prodDetalle} />
+    </div>
+  )
 }

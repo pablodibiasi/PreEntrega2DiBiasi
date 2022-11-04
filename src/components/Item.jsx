@@ -1,8 +1,15 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import ItemCount from './ItemCount'
-
-export default function item({ id, title, description, price, pictureUrl }) {
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+export default function item({
+  id,
+  title,
+  description,
+  price,
+  pictureUrl,
+  categoria,
+}) {
   const onAdd = (cantidad) => {
     alert(`El usuario agrego: ${cantidad}`)
   }
@@ -13,11 +20,14 @@ export default function item({ id, title, description, price, pictureUrl }) {
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
-            <p>descripcion:{description}</p>
-            <p> precio:{price}</p>
-            <p>id:{id}</p>
+            {/* <p>descripcion: {description}</p> */}
+            <p> precio: {price}</p>
+            {/* <p>id: {id}</p> */}
+            <p>Muebles de {categoria}</p>
           </Card.Text>
-          <ItemCount stock={10} initial={1} onAdd={onAdd} />
+          <Button variant="light">
+            <Link to={'/item/' + id}>Ir a detalles del producto</Link>
+          </Button>
         </Card.Body>
       </Card>
     </div>

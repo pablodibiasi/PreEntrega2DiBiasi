@@ -9,13 +9,14 @@ import mesaplegable from '../imagenes/mesaplegable.jpg'
 import mesaRatona from '../imagenes/mesaRatona.jpg'
 import vinoteca from '../imagenes/vinoteca.jpg'
 
-const productos = [
+export const productos = [
   {
     id: 1,
     title: 'cajonera',
     description: '',
     price: 7000,
     pictureUrl: cajonera,
+    categoria: 'dormitorio',
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesa2,
+    categoria: 'living',
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesa3,
+    categoria: 'living',
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesa4,
+    categoria: 'living',
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesa5,
+    categoria: 'oficina',
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesaluz,
+    categoria: 'dormitorio',
   },
   {
     id: 7,
@@ -58,6 +64,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesamovil,
+    categoria: 'living',
   },
   {
     id: 8,
@@ -65,6 +72,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesaplegable,
+    categoria: 'living',
   },
   {
     id: 9,
@@ -72,6 +80,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: mesaRatona,
+    categoria: 'living',
   },
   {
     id: 10,
@@ -79,6 +88,7 @@ const productos = [
     description: '',
     price: 10000,
     pictureUrl: vinoteca,
+    categoria: 'cocina',
   },
 ]
 
@@ -90,10 +100,19 @@ export const getProducts = () => {
   })
 }
 
-export const getItem = () => {
-  return new Promise((res) => {
+// export const getItem = () => {
+//   return new Promise((res) => {
+//     productos.find((product) => product.id == id)
+
+//     setTimeout(() => {
+//       res(productos)
+//     }, 2000)
+//   })
+
+export const getProduct = (iditem) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      res(productos.filter((producto) => producto.id == 1))
+      resolve(productos)
     }, 2000)
   })
 }
