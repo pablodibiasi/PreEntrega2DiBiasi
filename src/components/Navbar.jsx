@@ -19,36 +19,35 @@ function ColorSchemesExample() {
             </Link>{' '}
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Button variant="light">
+            <Button className="navbutton" variant="light">
               {' '}
               <Link to={'/'}>Inicio</Link>{' '}
             </Button>
 
-            <Button variant="light">
-              {' '}
-              <Link to={'/Contacto'}>contacto</Link>{' '}
-            </Button>
-
-            <Dropdown>
-              <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                categorias
+            <Dropdown className="navbutton">
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
+                Categorias
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
                 <Dropdown.Item>
-                  <Link to={'/categoria/living'}>living</Link>
+                  <Link to={'/categoria/Living'}>Living</Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/dormitorio'}>dormitorio</Link>
+                  <Link to={'/categoria/Dormitorio'}>Dormitorio</Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/cocina'}>cocina</Link>
+                  <Link to={'/categoria/Cocina'}>Cocina</Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/oficina'}>oficina</Link>
+                  <Link to={'/categoria/Oficina'}>Oficina</Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            <Button className="navbutton" variant="light">
+              {' '}
+              <Link to={'/Contacto'}>Contacto</Link>{' '}
+            </Button>
           </Nav>
           <CartWidget />
         </Container>

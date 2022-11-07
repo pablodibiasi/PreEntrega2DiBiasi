@@ -25,8 +25,12 @@ export default function ItemListContainer({}) {
   }, [idcategoria])
   return (
     <>
-      {!Catalogo.length && <Spinner animation="grow" />}
-      <ItemList Catalogo={Catalogo} />
+      {' '}
+      <div className="itemlistcont">
+        {!Catalogo.length && <Spinner animation="grow" />}
+
+        <ItemList Catalogo={Catalogo} />
+      </div>
     </>
   )
 }

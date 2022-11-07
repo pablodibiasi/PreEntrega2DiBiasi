@@ -1,6 +1,28 @@
 .Cards {
   display: flex;
   flex-direction: row;
+
   justify-content: center;
   margin: 10px;
+}
+
+.itemlistcont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px;
+}
+.navbutton {
+  margin: 5px;
+}
+
+.contact {
+  background-color: coral;
+  margin: 10px;
+  text-align: center;
+  padding: 20px;
+}
+.icwass {
+  width: 40px;
 }

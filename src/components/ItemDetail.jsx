@@ -9,7 +9,14 @@ export default function ItemDetail({ item }) {
   }
   return (
     <div>
-      <Card style={{ width: '18rem', borderColor: 'brown', borderWidth: 3 }}>
+      <Card
+        style={{
+          width: '30rem',
+          borderColor: 'brown',
+          borderWidth: 3,
+          margin: 10,
+        }}
+      >
         <Card.Img variant="top" src={item.pictureUrl} />
         <Card.Body>
           <Card.Title>{item.title}</Card.Title>

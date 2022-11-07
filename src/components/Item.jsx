@@ -11,12 +11,18 @@ export default function item({
   pictureUrl,
   categoria,
 }) {
-  const onAdd = (cantidad) => {
-    alert(`El usuario agrego: ${cantidad}`)
-  }
   return (
     <>
-      <Card style={{ width: '18rem', borderColor: 'brown', borderWidth: 3 }}>
+      {' '}
+      <Card
+        className="item"
+        style={{
+          width: '15rem',
+          borderColor: 'brown',
+          borderWidth: 3,
+          margin: 10,
+        }}
+      >
         <Card.Img variant="top" src={pictureUrl} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
