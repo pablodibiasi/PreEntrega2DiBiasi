@@ -2,11 +2,21 @@ import React from 'react'
 import { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import ItemCount from './ItemCount'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+
+import { useCartContext } from '../context/CartContext'
 
 export default function ItemDetail({ item }) {
-  const onAdd = (cantidad) => {
-    alert(`El usuario agrego: ${cantidad}`)
+  const [irCarrito, setIrCarrito] = useState(false)
+
+  const { addItem } = useCartContext()
+
+  const onAdd = (quantity) => {
+    setIrCarrito(true)
+    addItem(item, quantity)
   }
+
   return (
     <div>
       <Card
@@ -26,7 +36,17 @@ export default function ItemDetail({ item }) {
             <p>Id de producto:{item.id}</p>
             <p>Muebles de {item.categoria}</p>
           </Card.Text>
-          <ItemCount stock={10} initial={1} onAdd={onAdd} />
+          {irCarrito ? (
+            <Link className="link" to={'/Cart'}>
+              {' '}
+              <Button>Ir al carrito </Button>{' '}
+            </Link>
+          ) : (
+            <ItemCount stock={10} initial={1} onAdd={onAdd} />
+          )}{' '}
+          <Link className="link" to={'/categoria/' + item.categoria}>
+            <Button> Ir atras </Button>{' '}
+          </Link>
         </Card.Body>
       </Card>
     </div>

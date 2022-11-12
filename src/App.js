@@ -1,25 +1,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import Cart from './components/Cart'
 import Contacto from './components/Contacto'
 import Footer from './components/Footer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import ColorSchemesExample from './components/Navbar'
+import CartProvider from './context/CartContext'
 
 function App() {
   return (
     <BrowserRouter>
-      <ColorSchemesExample />
+      <CartProvider>
+        <ColorSchemesExample />
 
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/categoria/:idcategoria" element={<ItemListContainer />} />
-        <Route path="/item/:iditem" element={<ItemDetailContainer />} />
-        <Route path="/Contacto" element={<Contacto />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route
+            path="/categoria/:idcategoria"
+            element={<ItemListContainer />}
+          />
+          <Route path="/item/:iditem" element={<ItemDetailContainer />} />
+          <Route path="/Contacto" element={<Contacto />} />
+          <Route path="/Cart" element={<Cart />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </CartProvider>
     </BrowserRouter>
   )
 }

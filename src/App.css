@@ -26,3 +26,14 @@
 .icwass {
   width: 40px;
 }
+.link {
+  text-decoration: none;
+  color: black;
+}
+.carrito {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}

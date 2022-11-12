@@ -13,17 +13,18 @@ function ColorSchemesExample() {
         <Container>
           <Navbar.Brand>
             {' '}
-            <Link to={'/'}>
+            <Link className="link" to={'/'}>
               {' '}
               <img src={logo} alt="logo" style={{ width: 120, height: 120 }} />
             </Link>{' '}
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Button className="navbutton" variant="light">
+            <Link className="link" to={'/'}>
               {' '}
-              <Link to={'/'}>Inicio</Link>{' '}
-            </Button>
-
+              <Button className="navbutton" variant="light">
+                Inicio{' '}
+              </Button>
+            </Link>{' '}
             <Dropdown className="navbutton">
               <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Categorias
@@ -31,23 +32,34 @@ function ColorSchemesExample() {
 
               <Dropdown.Menu>
                 <Dropdown.Item>
-                  <Link to={'/categoria/Living'}>Living</Link>
+                  <Link className="link" to={'/categoria/Living'}>
+                    Living
+                  </Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/Dormitorio'}>Dormitorio</Link>
+                  <Link className="link" to={'/categoria/Dormitorio'}>
+                    Dormitorio
+                  </Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/Cocina'}>Cocina</Link>
+                  <Link className="link" to={'/categoria/Cocina'}>
+                    {' '}
+                    Cocina
+                  </Link>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <Link to={'/categoria/Oficina'}>Oficina</Link>
+                  <Link className="link" to={'/categoria/Oficina'}>
+                    Oficina
+                  </Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
-            <Button className="navbutton" variant="light">
+            </Dropdown>{' '}
+            <Link className="link" to={'/Contacto'}>
               {' '}
-              <Link to={'/Contacto'}>Contacto</Link>{' '}
-            </Button>
+              <Button className="navbutton" variant="light">
+                Contacto{' '}
+              </Button>
+            </Link>{' '}
           </Nav>
           <CartWidget />
         </Container>

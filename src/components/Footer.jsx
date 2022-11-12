@@ -6,7 +6,9 @@ export default function Footer() {
     <Navbar bg="warning" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link to={'/'}>elemento madera</Link>
+          <Link className="link" to={'/'}>
+            Elemento madera
+          </Link>
         </Navbar.Brand>
 
         <Navbar.Toggle />

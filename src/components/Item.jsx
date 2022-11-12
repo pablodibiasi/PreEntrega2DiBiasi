@@ -31,9 +31,13 @@ export default function item({
 
             <p>Muebles de {categoria}</p>
           </Card.Text>
-          <Button variant="outline-primary">
-            <Link to={'/item/' + id}>Ir a detalles del producto</Link>
-          </Button>
+
+          <Link className="link" to={'/item/' + id}>
+            {' '}
+            <Button variant="outline-primary">
+              Ir a detalles del producto{' '}
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </>

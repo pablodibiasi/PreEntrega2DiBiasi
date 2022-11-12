@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../data/productos'
-import item from './Item'
 import ItemDetail from './ItemDetail'
 
 export default function ItemDetailContainer() {
@@ -19,7 +18,7 @@ export default function ItemDetailContainer() {
 
       .catch((err) => console.log(err))
   }, [iditem])
-  console.log(prodDetalle)
+
   return (
     <div className="Cards" key={prodDetalle.id}>
       <ItemDetail item={prodDetalle} />
