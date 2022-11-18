@@ -25,9 +25,11 @@ export default function item({
       >
         <Card.Img variant="top" src={pictureUrl} />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
+          <Card.Title>
+            <h3>{title}</h3>
+          </Card.Title>
           <Card.Text>
-            <p> precio: {price}</p>
+            <h4> precio: ${price}</h4>
 
             <p>Muebles de {categoria}</p>
           </Card.Text>

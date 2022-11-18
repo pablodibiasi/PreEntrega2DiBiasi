@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProduct } from '../data/productos'
+
 import ItemDetail from './ItemDetail'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 export default function ItemDetailContainer() {
   const { iditem } = useParams()
   const [prodDetalle, setProdDetalle] = useState([])
 
   useEffect(() => {
-    const obtengoProductDet = new Promise((res, rej) => {
-      res(getProduct())
-    })
-    obtengoProductDet
-      .then((res) => {
-        setProdDetalle(res.find((item) => item.id == iditem))
-      })
+    //traigo firestore
+    const db = getFirestore()
+    //elijo de firestore el doc q quiero traer
+    const queryDoc = doc(db, 'productos', iditem)
 
-      .catch((err) => console.log(err))
+    //cuando me trae los datos los seteo en el prod detalle con spread operator
+
+    getDoc(queryDoc).then((res) =>
+      setProdDetalle({ id: res.id, ...res.data() }),
+    )
   }, [iditem])
 
   return (

@@ -29,11 +29,13 @@ export default function ItemDetail({ item }) {
       >
         <Card.Img variant="top" src={item.pictureUrl} />
         <Card.Body>
-          <Card.Title>{item.title}</Card.Title>
+          <Card.Title>
+            <h3>{item.title}</h3>
+          </Card.Title>
           <Card.Text>
             <p>{item.description}</p>
-            <p> precio:{item.price}</p>
-            <p>Id de producto:{item.id}</p>
+            <h4> precio: $ {item.price}</h4>
+            <p>Id de producto: {item.id}</p>
             <p>Muebles de {item.categoria}</p>
           </Card.Text>
           {irCarrito ? (

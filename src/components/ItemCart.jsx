@@ -20,26 +20,19 @@ export default function ItemCart({ product }) {
       >
         <Card.Img variant="top" src={product.pictureUrl} />
         <Card.Body>
-          <Card.Title>{product.title}</Card.Title>
+          <Card.Title>
+            <h4>{product.title}</h4>
+          </Card.Title>
           <Card.Text>
-            <p> precio: {product.price}</p>
+            <h4> precio: $ {product.price}</h4>
             <p>cantidad : {product.quantity}</p>
             <p>Id de producto: {product.id}</p>
             <h3> subtotal: $ {product.quantity * product.price} </h3>
           </Card.Text>
-          <Button
-            style={{
-              backgroundColor: 'white',
-              borderColor: 'brown',
-              borderRadius: 8,
-            }}
-          >
-            {' '}
-            <Link className="link" to={'/categoria/' + product.categoria}>
-              ir atras{' '}
-            </Link>
-          </Button>{' '}
-          <Button onClick={() => removeProduct(product.id)}>remover</Button>
+
+          <Button onClick={() => removeProduct(product.id)}>
+            remover producto
+          </Button>
         </Card.Body>
       </Card>
     </div>

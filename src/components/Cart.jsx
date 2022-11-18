@@ -23,7 +23,21 @@ export default function Cart() {
         {cart.map((product) => (
           <ItemCart key={product.id} product={product} />
         ))}
-        <h2>Total: $ {totalPrice()}</h2>
+        <div
+          style={{
+            textAlign: 'center',
+            margin: '20px',
+            border: '3px solid brown',
+            borderRadius: 5,
+            padding: 10,
+          }}
+        >
+          {' '}
+          <h2>Total: $ {totalPrice()}</h2>
+          <Link to="/">
+            <Button> finalizar compra </Button>
+          </Link>
+        </div>
       </div>
     </>
   )
