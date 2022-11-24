@@ -4,15 +4,22 @@ import ItemCart from './ItemCart'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
+
+import { useState } from 'react'
+
 export default function Cart() {
   const { cart, totalPrice } = useCartContext()
+  const [nombre, setNombre] = useState('')
+  const [email, setEmail] = useState('')
+  const [telefono, setTelefono] = useState('')
+  const [direccion, setDireccion] = useState('')
 
   const order = {
     buyer: {
-      nombre: 'pablo',
-      email: 'pablo@gmail.com',
-      tel: '5555555',
-      direccion: 'calle 1 555',
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      direccion: direccion,
     },
     items: cart.map((product) => ({
       id: product.id,
@@ -34,13 +41,13 @@ export default function Cart() {
     addDoc(ordersCollection, order).then(({ id }) => console.log(id))
   }
 
-  console.log(cart)
+  console.log(order)
   if (cart.length === 0) {
     return (
       <div style={{ textAlign: 'center', margin: '20px' }}>
         <h2>El carrito esta vacio</h2>
         <Link to="/">
-          <Button> ir al catalogo </Button>
+          <Button> ir al catalogo de productos</Button>
         </Link>
       </div>
     )
@@ -62,7 +69,29 @@ export default function Cart() {
           }}
         >
           {' '}
-          <h2>Total: $ {totalPrice()}</h2>
+          <h2>Total a pagar: $ {totalPrice()}</h2>
+          <div>
+            <input
+              placeholder="Nombre"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+            <input
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              placeholder="Telefono"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+            />
+            <input
+              placeholder="Direccion"
+              value={direccion}
+              onChange={(e) => setDireccion(e.target.value)}
+            />
+          </div>
           <Link to="/">
             <Button onClick={handleClick}> generar pedido </Button>
           </Link>

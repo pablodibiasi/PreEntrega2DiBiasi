@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 const cartContext = React.createContext([])
 
@@ -7,7 +7,9 @@ export const useCartContext = () => useContext(cartContext)
 
 export default function CartProvider({ children }) {
   //  creo un estado cart vacio
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem('cart')) || [],
+  )
 
   //func agregar producto al carrito
   const addItem = (item, quantity) => {
@@ -44,6 +46,10 @@ export default function CartProvider({ children }) {
   const totalProducts = () => {
     return cart.reduce((prev, act) => prev + act.quantity, 0)
   }
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   return (
     <cartContext.Provider
