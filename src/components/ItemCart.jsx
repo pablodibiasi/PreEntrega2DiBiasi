@@ -1,7 +1,6 @@
 import React from 'react'
 import { useCartContext } from '../context/CartContext'
 import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 export default function ItemCart({ product }) {
   const { removeProduct } = useCartContext()
@@ -11,9 +10,8 @@ export default function ItemCart({ product }) {
     <div className="itemCart">
       <Card
         style={{
-          width: '20rem',
-
-          borderColor: 'brown',
+          width: '18rem',
+          textAlign: 'center',
           borderWidth: 3,
           margin: 10,
         }}
@@ -30,7 +28,7 @@ export default function ItemCart({ product }) {
             <h3> subtotal: $ {product.quantity * product.price} </h3>
           </Card.Text>
 
-          <Button onClick={() => removeProduct(product.id)}>
+          <Button variant="danger" onClick={() => removeProduct(product.id)}>
             remover producto
           </Button>
         </Card.Body>

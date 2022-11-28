@@ -1,7 +1,5 @@
 import React from 'react'
 import { useCartContext } from '../context/CartContext'
-
-import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import swal from 'sweetalert'
@@ -13,7 +11,7 @@ export default function Checkout() {
   const [email, setEmail] = useState('')
   const [telefono, setTelefono] = useState('')
   const [direccion, setDireccion] = useState('')
-  //validar email
+
   function validateEmail(email) {
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
     if (reg.test(email) == false) {
@@ -23,6 +21,20 @@ export default function Checkout() {
         icon: 'warning',
         button: 'cerrar',
         timer: 3000,
+      })
+      return false
+    }
+    return true
+  }
+
+  function validateTelefono(telefono) {
+    var reg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    if (reg.test(telefono) == false) {
+      swal({
+        title: 'El formato del tel no es valido',
+        text: ' cod de area sin el 0 y su numero,ej: 1155555555 ',
+        icon: 'warning',
+        button: 'cerrar',
       })
       return false
     }
@@ -46,13 +58,18 @@ export default function Checkout() {
   }
 
   const handleClick = () => {
-    //instancia de firestore
     const db = getFirestore()
 
-    //referencia a una collection
     const ordersCollection = collection(db, 'orders')
-    //promesa addDoc
 
+    if (totalPrice() == 0) {
+      swal({
+        title: 'no hay nada en tu carrito',
+        icon: 'info',
+        text: 'vuelve al inicio para seguir viendo nuestros productos',
+      })
+      return
+    }
     if (!nombre || !email || !telefono || !direccion) {
       swal({
         title: 'completa los campos requeridos',
@@ -63,21 +80,26 @@ export default function Checkout() {
       })
       return
     }
+
     if (validateEmail(email) == false) {
       return
     }
+
+    if (validateTelefono(telefono) == false) {
+      return
+    }
+
     addDoc(ordersCollection, order).then(
       ({ id }) =>
         swal({
           icon: 'success',
           title: 'pedido recibido con exito',
-          text: 'Su codigo de pedido es: ' + id,
+          text:
+            'Nos vamos a comunicar a tu email, tu codigo de pedido es : ' + id,
         }),
       clearCart(),
     )
   }
-
-  console.log(order)
 
   return (
     <>
@@ -85,35 +107,39 @@ export default function Checkout() {
         style={{
           textAlign: 'center',
           margin: '20px',
-          border: '3px solid brown',
           borderRadius: 5,
           padding: 10,
+          backgroundColor: 'white',
         }}
       >
         <h2>Total a pagar: $ {totalPrice()}</h2>
         <div>
           <input
-            placeholder="Nombre"
+            placeholder="*Nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
           <input
-            placeholder="Email"
+            placeholder="*Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            placeholder="Telefono"
+            type={'tel'}
+            placeholder="*Telefono"
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}
           />
           <input
-            placeholder="Direccion"
+            placeholder="*Direccion"
             value={direccion}
             onChange={(e) => setDireccion(e.target.value)}
           />
+          <p style={{ color: 'red' }}>(*campos obligatorios)</p>
         </div>
-        <Button onClick={handleClick}> generar pedido </Button>
+        <div style={{ margin: 10 }}>
+          <Button onClick={handleClick}> generar pedido </Button>
+        </div>
       </div>
     </>
   )

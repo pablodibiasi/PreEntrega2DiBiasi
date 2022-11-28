@@ -9,27 +9,43 @@ export default function Cart() {
 
   if (cart.length === 0) {
     return (
-      <div style={{ textAlign: 'center', margin: '20px' }}>
+      <div
+        style={{
+          textAlign: 'center',
+          margin: '20px',
+          borderRadius: 5,
+          backgroundColor: 'white',
+        }}
+      >
         <h2>El carrito esta vacio</h2>
         <Link to="/">
-          <Button> ir al catalogo de productos</Button>
+          <Button style={{ margin: 10 }} variant="success" size="lg">
+            Ir a catalogo
+          </Button>
         </Link>
       </div>
     )
   }
   return (
     <>
-      {' '}
-      <div className="carrito">
-        {cart.map((product) => (
-          <ItemCart key={product.id} product={product} />
-        ))}
-      </div>
-      <h2>Total a pagar: $ {totalPrice()}</h2>
-      <Link to="/checkout">
+      <div className="cartContainer">
         {' '}
-        <Button> ir al checkout</Button>
-      </Link>
+        <div className="carrito">
+          {cart.map((product) => (
+            <ItemCart key={product.id} product={product} />
+          ))}
+        </div>
+        <div className="irCheckout">
+          <h2>Total a pagar: $ {totalPrice()}</h2>
+          <Link to="/checkout">
+            {' '}
+            <Button size="lg" variant="success">
+              {' '}
+              Ir al checkout
+            </Button>
+          </Link>
+        </div>
+      </div>
     </>
   )
 }

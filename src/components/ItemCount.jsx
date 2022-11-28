@@ -5,7 +5,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
   const [contador, setContador] = useState(initial)
 
   return (
-    <div>
+    <div className="itemCount">
       <p
         style={{
           backgroundColor: 'brown',
@@ -17,25 +17,29 @@ export default function ItemCount({ stock, initial, onAdd }) {
         {' '}
         Solo quedan {stock - contador} unidades en stock{' '}
       </p>
-      <Button
-        onClick={() => {
-          contador < stock ? setContador(contador + 1) : setContador(stock)
-        }}
-      >
-        {' '}
-        +{' '}
-      </Button>
-      <Button variant="danger" style={{ margin: '5px' }}>
-        {contador}
-      </Button>
-      <Button
-        onClick={() => {
-          contador >= 2 ? setContador(contador - 1) : setContador(1)
-        }}
-      >
-        {' '}
-        -{' '}
-      </Button>
+      <div>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            contador < stock ? setContador(contador + 1) : setContador(stock)
+          }}
+        >
+          {' '}
+          +{' '}
+        </Button>
+        <Button variant="outline-dark" style={{ margin: '5px' }}>
+          {contador}
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            contador >= 2 ? setContador(contador - 1) : setContador(1)
+          }}
+        >
+          {' '}
+          -{' '}
+        </Button>
+      </div>
       <button
         style={{
           backgroundColor: 'brown',
@@ -43,6 +47,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
           borderRadius: 5,
           margin: 10,
           borderColor: 'brown',
+          padding: 5,
         }}
         onClick={() => onAdd(contador)}
       >

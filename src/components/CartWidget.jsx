@@ -1,6 +1,5 @@
 import React from 'react'
 import { Cart } from 'react-bootstrap-icons'
-import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'

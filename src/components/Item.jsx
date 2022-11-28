@@ -18,8 +18,7 @@ export default function item({
         className="item"
         style={{
           width: '15rem',
-          borderColor: 'brown',
-          borderWidth: 3,
+
           margin: 10,
         }}
       >
@@ -36,9 +35,7 @@ export default function item({
 
           <Link className="link" to={'/item/' + id}>
             {' '}
-            <Button variant="outline-primary">
-              Ir a detalles del producto{' '}
-            </Button>
+            <Button variant="success">Ir a detalles del producto </Button>
           </Link>
         </Card.Body>
       </Card>

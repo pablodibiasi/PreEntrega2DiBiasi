@@ -25,7 +25,7 @@ export default function CartProvider({ children }) {
       setCart([...cart, { ...item, quantity }])
     }
   }
-  console.log(cart)
+
   // func vaciarcarrito
   const clearCart = () => setCart([])
 

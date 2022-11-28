@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router-dom'
-// import { getProducts } from '../data/productos'
 import ItemList from './ItemList'
 import {
   getFirestore,
@@ -39,7 +38,6 @@ export default function ItemListContainer({}) {
           stock: element.data().stock,
         }
       })
-      console.log(arrayNorm)
 
       setCatalogo(arrayNorm)
     })
